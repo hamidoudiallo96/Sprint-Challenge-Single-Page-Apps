@@ -1,6 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import {Card,Icon} from 'semantic-ui-react'
+import {makeStyles} from '@material-ui/styles'
+
+const cardStyle = makeStyles({
+   card:{
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent:'space-between',
+    backgroundColor: '#e4a788',
+    padding: '20px',
+    border: '10px groove #97ce4c'
+   }
+})
 
 export default function LocationsList() {
     const [location,setLocation] = useState([])
@@ -17,9 +30,9 @@ export default function LocationsList() {
     },[location])
 
     
-
+    const classes = cardStyle()
     return(
-        <div>
+        <div className = {classes.card}>
             {location.map((item,index) =>(
                 <Card key ={index}>
                     <Card.Content header={item.name} />
