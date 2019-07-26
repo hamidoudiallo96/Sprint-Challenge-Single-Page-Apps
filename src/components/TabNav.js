@@ -1,6 +1,7 @@
 import React from 'react'
 import { Tab, Menu, Icon } from 'semantic-ui-react'
 import { NavLink } from "react-router-dom";
+import { makeStyles } from '@material-ui/styles';
 
 // TODO: Add missing tabs below
 
@@ -12,14 +13,22 @@ const Nav = props => (
 	/>
 );
 
+const navStyles = makeStyles({
+	
+})
+const classes = navStyles
 const createLabel = (iconName, labelText) => <span><Icon name={iconName} />{labelText}</span>
 
 const welcomeLabel = createLabel("home", "Home Page")
 const characterLabel = createLabel("users", "Characters")
+const locationLabel = createLabel('users', 'Locations')
+const episodeLabel = createLabel('users', 'Episodes')
 
 const panes = [
   { menuItem: <Menu.Item key='home' as={Nav} to={`/`} content={welcomeLabel} /> },
-  { menuItem: <Menu.Item key='characters' as={Nav} to={`/characters`} content={characterLabel} /> }
+  { menuItem: <Menu.Item key='characters' as={Nav} to={`/characters`} content={characterLabel} /> },
+  { menuItem:<Menu.Item key ='location' as={Nav} to ={`/location`} content ={locationLabel} />},
+  { menuItem:<Menu.Item key ='episodes' as={Nav} to ={`/episodes`} content ={episodeLabel} />}
 ]
 
 const TabNav = () => <Tab panes={panes} renderActiveOnly={false} />
